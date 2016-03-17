@@ -1,0 +1,7 @@
+pages:
+    resource: "@PagesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+shop:
+    resource: "@ShopBundle/Resources/config/routing.yml"
+    prefix:   /shop

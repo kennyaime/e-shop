@@ -1,0 +1,19 @@
+produits:
+    path:     /
+    defaults: { _controller: ShopBundle:Produits:produits }
+
+details:
+    path:     /produit
+    defaults: { _controller: ShopBundle:Produits:details }
+
+panier:
+    path:     /panier
+    defaults: { _controller: ShopBundle:Panier:panier }
+
+livraison:
+    path:     /panier/livraison
+    defaults: { _controller: ShopBundle:Panier:livraison }
+
+validation:
+    path:     /panier/validation
+    defaults: { _controller: ShopBundle:Panier:validation }
