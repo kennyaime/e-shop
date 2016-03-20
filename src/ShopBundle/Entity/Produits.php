@@ -33,7 +33,7 @@ class Produits
      */
     private $categorie;
 
-    /*
+    /**
      * @ORM\ManyToOne(targetEntity="ShopBundle\Entity\Tva", cascade={"persist","remove"})
      * @ORM\JoinColumn{nullable=false}
      */
@@ -214,5 +214,28 @@ class Produits
     public function getCategorie()
     {
         return $this->categorie;
+    }
+
+    /**
+     * Set tva
+     *
+     * @param \ShopBundle\Entity\Tva $tva
+     * @return Produits
+     */
+    public function setTva(\ShopBundle\Entity\Tva $tva = null)
+    {
+        $this->tva = $tva;
+
+        return $this;
+    }
+
+    /**
+     * Get tva
+     *
+     * @return \ShopBundle\Entity\Tva 
+     */
+    public function getTva()
+    {
+        return $this->tva;
     }
 }

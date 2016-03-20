@@ -6,13 +6,27 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ProduitsController extends Controller
 {
-    public function produitsAction()
+    public function categorieAction($categorie)
     {
-        return $this->render('ShopBundle:Default:produits/layout/produits.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $produits = $em->getRepository('ShopBundle:Produits')->byCategorie($categorie);
+
+        return $this->render('ShopBundle:Default:produits/layout/produits.html.twig', array('produits' => $produits));
     }
 
-    public function detailsAction()
+    public function produitsAction()
     {
-        return $this->render('ShopBundle:Default:produits/layout/details.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $produits = $em->getRepository('ShopBundle:Produits')->findAll();
+
+        return $this->render('ShopBundle:Default:produits/layout/produits.html.twig', array('produits' => $produits));
+    }
+
+    public function detailsAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $produit = $em->getRepository('ShopBundle:Produits')->find($id);
+
+        return $this->render('ShopBundle:Default:produits/layout/details.html.twig', array('produit' => $produit));
     }
 }

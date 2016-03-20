@@ -3,7 +3,7 @@ produits:
     defaults: { _controller: ShopBundle:Produits:produits }
 
 details:
-    path:     /produit
+    path:     /produit/{id}
     defaults: { _controller: ShopBundle:Produits:details }
 
 panier:
@@ -17,3 +17,7 @@ livraison:
 validation:
     path:     /panier/validation
     defaults: { _controller: ShopBundle:Panier:validation }
+
+categorieProduits:
+    path:     /categorie/{categorie}
+    defaults: { _controller: ShopBundle:Produits:categorie }

@@ -33,7 +33,7 @@ class Produits
      */
     private $categorie;
 
-    /*
+    /**
      * @ORM\ManyToOne(targetEntity="ShopBundle\Entity\Tva", cascade={"persist","remove"})
      * @ORM\JoinColumn{nullable=false}
      */
@@ -168,5 +168,51 @@ class Produits
     public function getDisponible()
     {
         return $this->disponible;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \ShopBundle\Entity\Media $image
+     * @return Produits
+     */
+    public function setImage(\ShopBundle\Entity\Media $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \ShopBundle\Entity\Media 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \ShopBundle\Entity\Categories $categorie
+     * @return Produits
+     */
+    public function setCategorie(\ShopBundle\Entity\Categories $categorie = null)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \ShopBundle\Entity\Categories 
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }
