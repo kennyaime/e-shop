@@ -3,3 +3,8 @@ services:
         class: ShopBundle\Twig\Extension\TvaExtension
         tags:
             - { name: twig.extension }
+
+    montantTva:
+        class: ShopBundle\Twig\Extension\MontantTvaExtension
+        tags:
+            - { name: twig.extension }
