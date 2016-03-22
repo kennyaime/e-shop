@@ -1,4 +1,5 @@
-body {
-	padding-bottom: 40px;
-    padding-top: 60px;
+html,body {
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
 }

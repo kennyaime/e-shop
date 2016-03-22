@@ -3,11 +3,11 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="span12">
+            <div class="col-md-12">
                 <h2>Livraison</h2>
                 <div id="collapseOne" class="accordion-body collapse in">
                     <div class="accordion-inner">
-                        <div class="span4">
+                        <div class="col-md-4">
                             <form action="{{ path('validation') }}">
                                 <h4>Adresse de livraison</h4>
                                 <label class="radio">
@@ -43,32 +43,37 @@
                         </div>
 
 
-                        <div class="span4 offset2">
+                        <div class="col-md-8">
                             <h4>Ajouter une nouvelle adresse</h4>
                             <form>
                                 <label>Nom</label>
                                 <input type="text">
-
+                                <br/>
                                 <label>Prénom</label>
                                 <input type="text">
+                                <br/>
 
                                 <label>Adresse</label>
                                 <input type="text">
+                                <br/>
 
                                 <label>Ville</label>
                                 <input type="text">
+                                <br/>
 
                                 <label>Code postal</label>
                                 <input type="text">
+                                <br/>
 
                                 <label>Ville</label>
                                 <input type="text">
+                                <br/>
 
                                 <label>Téléphone</label>
                                 <input type="text">
-
                                 <br />
-                                <button class="btn btn-primary">Ajouter</button>
+                                <br/>
+                                <button class="btn btn-default">Ajouter</button>
                             </form>
                         </div>
                     </div>
