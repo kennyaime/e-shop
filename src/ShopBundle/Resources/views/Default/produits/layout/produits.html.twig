@@ -6,9 +6,14 @@
 
             <div class="span3">
                 {% include '::modulesUsed/navigation.html.twig ' %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% include 'UtilisateursBundle:Default:modulesUsed/utilisateursConnecte.html.twig' %}
+                {% else %}
+                    {% include 'UtilisateursBundle:Default:modulesUsed/utilisateurs.html.twig' %}
+                {% endif %}
             </div>
             <div class="span9">
-
+                {% if produits|length != 0 %}
                 <ul class="thumbnails">
                     {%  for produit in produits %}
                     <li class="span3">
@@ -16,7 +21,7 @@
                             <img src="{{ produit.image.path }}" alt="image" width="300" height="300">
                             <div class="caption">
                                 <h4>{{ produit.nom }}</h4>
-                                <p>{{ produit.prix }} €</p>
+                                <p>{{ produit.prix|tva(produit.tva.multiplicate) }} €</p>
                                 <a class="btn btn-primary" href="{{ path('details', {'id' : produit.id}) }}">Plus d'infos</a>
                                 <a class="btn btn-success" href="{{ path('panier') }}">Ajouter au panier</a>
                             </div>
@@ -36,7 +41,9 @@
                         <li><a href="#">Suivant</a></li>
                     </ul>
                 </div>
-
+                {% else %}
+                    <p class="text-center">Aucun produit n'a été trouvé</p>
+                {% endif %}
             </div>
         </div>
     </div>

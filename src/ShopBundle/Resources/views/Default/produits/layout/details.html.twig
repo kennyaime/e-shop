@@ -1,5 +1,8 @@
 {% extends "::layout/layout.html.twig" %}
 
+{%  block titre %}{{ produit.nom }}{% endblock %}
+{%  block description %}{{ produit.description }}{% endblock %}
+
 {% block body %}
     <?php include '../layout/header.php'; ?>
 
@@ -20,7 +23,7 @@
                         <h4>{{ produit.nom }}</h4>
                         <h5>{{ produit.categorie.nom }}</h5>
                         <p>{{ produit.description }}</p>
-                        <h4>{{ produit.prix }}</h4>
+                        <h4>{{ produit.prix|tva(produit.tva.multiplicate) }} €</h4>
                         <form action="{{ path('panier') }}">
 
 
