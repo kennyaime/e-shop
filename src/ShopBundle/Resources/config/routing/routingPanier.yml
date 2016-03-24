@@ -17,3 +17,7 @@ livraison:
 validation:
     path:     /validation
     defaults: { _controller: ShopBundle:Panier:validation }
+
+livraisonAdresseSuppression:
+    path:     /livraison/adresse/supression/{id}
+    defaults: { _controller: ShopBundle:Panier:adresseSuppression }

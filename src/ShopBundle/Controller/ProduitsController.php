@@ -4,26 +4,20 @@ namespace ShopBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ShopBundle\Form\RechercheType;
+use ShopBundle\Entity\Categories;
 
 class ProduitsController extends Controller
 {
-    public function categorieAction($categorie)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $produits = $em->getRepository('ShopBundle:Produits')->byCategorie($categorie);
-
-        $categorie = $em->getRepository('ShopBundle:Categories')->find($categorie);
-        if (!$categorie) throw $this->createNotFoundException('La page n\'existe pas.');
-
-        return $this->render('ShopBundle:Default:produits/layout/produits.html.twig', array('produits' => $produits));
-    }
-
-    public function produitsAction()
+    public function produitsAction(Categories $categorie = null)
     {
         $session = $this->getRequest()->getSession();
         $em = $this->getDoctrine()->getManager();
 
-        $produits = $em->getRepository('ShopBundle:Produits')->findBy(array('disponible' => 1));
+        if ($categorie != null)
+            $produits = $em->getRepository('ShopBundle:Produits')->byCategorie($categorie);
+        else
+            $produits = $em->getRepository('ShopBundle:Produits')->findBy(array('disponible' => 1));
+
         if ($session->has('panier'))
             $panier = $session->get('panier');
         else
@@ -31,7 +25,7 @@ class ProduitsController extends Controller
 
 
         return $this->render('ShopBundle:Default:produits/layout/produits.html.twig', array('produits' => $produits,
-                                                                                            'panier' => $panier));
+            'panier' => $panier));
     }
 
     public function detailsAction($id)

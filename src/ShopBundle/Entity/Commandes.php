@@ -1,71 +1,62 @@
 <?php
-
 namespace ShopBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Commandes
  *
- * @ORM\Table(name="commandes")
+ * @ORM\Table("commandes")
  * @ORM\Entity(repositoryClass="ShopBundle\Repository\CommandesRepository")
  */
 class Commandes
 {
     /**
-     * @var int
+     * @var integer
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @ORM\ManyToOne(targetEntity="UtilisateursBundle\Entity\Utilisateurs", inversedBy="commandes")
-     * @ORM\JoinColumn{nullable=true}
+     * @ORM\JoinColumn(nullable=true)
      */
+
     private $utilisateur;
 
     /**
-     * @var bool
+     * @var boolean
      *
      * @ORM\Column(name="valider", type="boolean")
      */
     private $valider;
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
-
     /**
-     * @var int
+     * @var integer
      *
      * @ORM\Column(name="reference", type="integer")
      */
     private $reference;
-
     /**
      * @var array
      *
-     * @ORM\Column(name="produits", type="array")
+     * @ORM\Column(name="commande", type="array")
      */
-    private $produits;
-
-
+    private $commande;
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
-
     /**
      * Set valider
      *
@@ -75,20 +66,17 @@ class Commandes
     public function setValider($valider)
     {
         $this->valider = $valider;
-
         return $this;
     }
-
     /**
      * Get valider
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getValider()
     {
         return $this->valider;
     }
-
     /**
      * Set date
      *
@@ -98,20 +86,17 @@ class Commandes
     public function setDate($date)
     {
         $this->date = $date;
-
         return $this;
     }
-
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
         return $this->date;
     }
-
     /**
      * Set reference
      *
@@ -121,43 +106,37 @@ class Commandes
     public function setReference($reference)
     {
         $this->reference = $reference;
-
         return $this;
     }
-
     /**
      * Get reference
      *
-     * @return integer 
+     * @return integer
      */
     public function getReference()
     {
         return $this->reference;
     }
-
     /**
-     * Set produits
+     * Set commande
      *
-     * @param array $produits
+     * @param array $commande
      * @return Commandes
      */
-    public function setProduits($produits)
+    public function setCommande($commande)
     {
-        $this->produits = $produits;
-
+        $this->commande = $commande;
         return $this;
     }
-
     /**
-     * Get produits
+     * Get commande
      *
-     * @return array 
+     * @return array
      */
-    public function getProduits()
+    public function getCommande()
     {
-        return $this->produits;
+        return $this->commande;
     }
-
     /**
      * Set utilisateur
      *
@@ -167,14 +146,12 @@ class Commandes
     public function setUtilisateur(\UtilisateursBundle\Entity\Utilisateurs $utilisateur = null)
     {
         $this->utilisateur = $utilisateur;
-
         return $this;
     }
-
     /**
      * Get utilisateur
      *
-     * @return \UtilisateursBundle\Entity\Utilisateurs 
+     * @return \UtilisateursBundle\Entity\Utilisateurs
      */
     public function getUtilisateur()
     {
