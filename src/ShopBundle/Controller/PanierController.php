@@ -5,7 +5,6 @@ namespace ShopBundle\Controller;
 use ShopBundle\Form\UtilisateursAdressesType;
 use ShopBundle\Entity\UtilisateursAdresses;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class PanierController extends Controller
 {
@@ -133,16 +132,9 @@ class PanierController extends Controller
             $this->setLivraisonOnSession();
 
         $em = $this->getDoctrine()->getManager();
-        $session = $this->getRequest()->getSession();
-        $adresse = $session->get('adresse');
+        $prepareCommande = $this->forward('ShopBundle:Commandes:prepareCommande');
+        $commande = $em->getRepository('ShopBundle:Commandes')->find($prepareCommande->getContent());
 
-        $produits = $em->getRepository('ShopBundle:Produits')->findArray(array_keys($session->get('panier')));
-        $livraison = $em->getRepository('ShopBundle:UtilisateursAdresses')->find($adresse['livraison']);
-        $facturation = $em->getRepository('ShopBundle:UtilisateursAdresses')->find($adresse['facturation']);
-
-        return $this->render('ShopBundle:Default:panier/layout/validation.html.twig', array('produits' => $produits,
-                                                                                            'livraison' => $livraison,
-                                                                                            'facturation' => $facturation,
-                                                                                            'panier' => $session->get('panier')));
+        return $this->render('ShopBundle:Default:panier/layout/validation.html.twig', array('commande' => $commande));
     }
 }

@@ -5,3 +5,7 @@ routingPanier:
 routingProduits:
     resource: "@ShopBundle/Resources/config/routing/routingProduits.yml"
     prefix: /
+
+routingCommandes:
+    resource: "@ShopBundle/Resources/config/routing/routingCommandes.yml"
+    prefix: /
