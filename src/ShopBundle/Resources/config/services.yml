@@ -1,4 +1,8 @@
 services:
+    setNewReference:
+        class: ShopBundle\Services\GetReference
+        arguments: [@security.context, @doctrine.orm.entity_manager]
+
     tva:
         class: ShopBundle\Twig\Extension\TvaExtension
         tags:

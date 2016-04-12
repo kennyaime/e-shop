@@ -14,18 +14,20 @@ class ProduitsController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         if ($categorie != null)
-            $produits = $em->getRepository('ShopBundle:Produits')->byCategorie($categorie);
+            $findProduits = $em->getRepository('ShopBundle:Produits')->byCategorie($categorie);
         else
-            $produits = $em->getRepository('ShopBundle:Produits')->findBy(array('disponible' => 1));
+            $findProduits = $em->getRepository('ShopBundle:Produits')->findBy(array('disponible' => 1));
 
         if ($session->has('panier'))
             $panier = $session->get('panier');
         else
             $panier = false;
 
+        $produits = $this->get('knp_paginator')->paginate($findProduits,$this->get('request')->query->get('page', 1),3);
+
 
         return $this->render('ShopBundle:Default:produits/layout/produits.html.twig', array('produits' => $produits,
-            'panier' => $panier));
+                                                                                            'panier' => $panier));
     }
 
     public function detailsAction($id)

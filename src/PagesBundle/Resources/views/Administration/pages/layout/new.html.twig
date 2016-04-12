@@ -1,0 +1,13 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <h2>Création d'une page</h2>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-primary" type="submit" value="Create">Créer</button>
+    {{ form_end(form) }}
+    <br/>
+    <a href="{{ path('adminPages_index') }}">Retour</a>
+
+{% endblock %}
