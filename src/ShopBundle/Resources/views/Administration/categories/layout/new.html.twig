@@ -1,0 +1,12 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <h1>Créer une catégorie</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Créer" />
+    {{ form_end(form) }}
+
+    <a href="{{ path('adminCategories_index') }}">Retour</a>
+{% endblock %}

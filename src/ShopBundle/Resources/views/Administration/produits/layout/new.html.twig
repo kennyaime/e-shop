@@ -1,0 +1,15 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <h1>Produits creation</h1>
+
+    <form action="{{ path('adminProduits_new') }}" method="POST" {{ form_enctype(form) }}>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="Créer" class="btn btn-default"/>
+        {{ form_end(form) }}
+    </form>
+    <br />
+    <a href="{{ path('adminProduits_index') }}">Retour</a>
+
+{% endblock %}

@@ -6,6 +6,18 @@ routingProduits:
     resource: "@ShopBundle/Resources/config/routing/routingProduits.yml"
     prefix: /
 
+routingProduitsAdmin:
+    resource: "@ShopBundle/Resources/config/routing/routingProduitsAdmin.yml"
+    prefix: /admin/produits
+
+routingCategoriesAdmin:
+    resource: "@ShopBundle/Resources/config/routing/routingCategoriesAdmin.yml"
+    prefix: /admin/categories
+
 routingCommandes:
     resource: "@ShopBundle/Resources/config/routing/routingCommandes.yml"
     prefix: /
+
+routingCommandesAdmin:
+    resource: "@ShopBundle/Resources/config/routing/routingCommandesAdmin.yml"
+    prefix: /admin/commandes
