@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Pages</h1>
 
-    <table>
+    <table class="table table-striped table-hover">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -20,17 +20,13 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('adminPages_index') }}">Retour à la liste</a>
-        </li>
-        <li>
-            <a href="{{ path('adminPages_edit', { 'id': page.id }) }}">Edit</a>
-        </li>
-        <li>
+
+            <a href="{{ path('adminPages_index') }}">Retour à la liste</a><br />
+
+            <a href="{{ path('adminPages_edit', { 'id': page.id }) }}">Modifier</a><br/>
+
             {{ form_start(delete_form) }}
-                <button class="btn btn-primary" type="submit" value="Delete">Supprimer</button>
+                <button class="btn btn-default" type="submit" value="Supprimer">Supprimer</button>
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
 {% endblock %}

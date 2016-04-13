@@ -1,5 +1,28 @@
 html,body {
     margin: 0;
     padding: 0;
-    padding-top: 50px;
 }
+
+/** HEADER **/
+.navbar-default {
+    background-color: #FFF;
+    padding-top:5px;
+    padding-bottom:5px;
+    border-bottom: solid 1px #e7e7e7 !important;
+}
+
+.navbar-right img{
+    width: 20px;
+    margin-right: 10px;
+}
+
+.navbar-brand img{
+    height: 55px;
+    margin-top: -17px;
+}
+
+.navbar-right{
+    text-align:center;
+}
+
+

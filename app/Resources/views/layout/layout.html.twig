@@ -13,7 +13,7 @@
     </head>
     <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -23,17 +23,54 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ path('produits') }}">PersonaShop</a>
+                <a class="navbar-brand" href="{{ path('produits') }}" title="Accueil">
+                    <img src="{{ asset('img/titre.png') }}" alt="Persona">
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    {% render(controller('ShopBundle:Produits:recherche')) %}
+                    <li><a href="#"><img src="{{ asset('img/compte.png') }}" alt="connexion" />Connexion</a></li>
+                    <li><a href="#"><img src="{{ asset('img/inscription.png') }}" alt="inscription" />S'inscrire</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+
+    <!--<hgroup id="header">
+        <h1 id="name"><a href="{{ path('produits') }}" title="Retour vers la page d'accueil"><img src="../Img/titre.png" alt="Persona E-shop"></a></h1></br>
+        <h1 id="logo"><a href="/" title="Retour vers la page d'accueil"><img src="../Img/logo.png" alt="Persona E-shop"></a></h1>
+        <h1 id="japonais"><a href="/" title="Retour vers la page d'accueil"><img src="../Img/japonais.png" alt="Persona E-shop"></a></h1>
+        <div id="recherche"><input type="text" name="recherche" id="search" placeholder="recherche" />&nbsp;<input class="loupe" type="submit" name="rechercher" value="" /></div>
+        <hr>
+    </hgroup>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <hgroup id="header">
+                    <h1 id="name"><a href="{##}{ path('produits') }}" title="Retour vers la page d'accueil"><img src="../Img/titre.png" alt="Persona E-shop"></a></h1></br>
+                    <h1 id="logo"><a href="/" title="Retour vers la page d'accueil"><img src="../Img/logo.png" alt="Persona E-shop"></a></h1>
+                    <h1 id="japonais"><a href="/" title="Retour vers la page d'accueil"><img src="../Img/japonais.png" alt="Persona E-shop"></a></h1>
+                    <div id="recherche"><input type="text" name="recherche" id="search" placeholder="recherche" />&nbsp;<input class="loupe" type="submit" name="rechercher" value="" /></div>
+                    <hr>
+                </hgroup>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--<ul class="nav navbar-nav navbar-right">
+                    {##}% render(controller('ShopBundle:Produits:recherche')) %}
+                </ul> -->
+            <!--</div><!-- /.navbar-collapse -->
+        <!--</div><!-- /.container-fluid -->
+    <!--</nav> -->
 
     {% block body %}{% endblock %}
 
@@ -50,20 +87,25 @@
                 </div>
 
                 <div class="col-md-4">
-                    <h4>Notre entrepôt</h4>
-                    <p><i class="icon-map-marker"></i>&nbsp;Lorem ipsum dolor sit amet.</p>
+                    <h4>Aide</h4>
+                    <p>Assistance</p>
+                    <p>Suivi de commande</p>
+                    <p>Retour</p>
                 </div>
 
                 <div class="col-md-4">
-                    <h4>Nous contacter</h4>
-                    <p><i class="icon-phone"></i>&nbsp;Tel: 00 00 00 00 00</p>
-                    <p><i class="icon-print"></i>&nbsp;Fax: 00 00 00 00 00</p>
+                    <h4>Suivez Persona</h4>
+                    <p>Facebook</p>
+                    <p>Twitter</p>
+                    <p>Instagram</p>
+                    <p>Youtube</p>
+                    <p>Google +</p>
                 </div>
             </div>
 
             <div class="row">
-                <div class="span12">
-                    <p>&copy; Copyright {{ "now"|date('Y') }} - Licence professionnelle DA2I</p>
+                <div class="col-md-12">
+                    <p>Condition générales | Accessibilité | A propos de Persona &copy; Copyright {{ "now"|date('Y') }}</p>
                 </div>
             </div>
         </div>
